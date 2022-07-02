@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-
+  before_action :set_todo, only: [:edit, :update, :show, :destroy] 
   def index
     @todos = Todo.all
   end 
@@ -18,11 +18,11 @@ class TodosController < ApplicationController
   end
 
   def show
-    @todo = Todo.find(params[:id])
+    set_todo
   end 
+  
   def edit
     if Todo.exists?(params[:id])
-      @todo = Todo.find(params[:id])
     else
       flash[:alert] = "Post isn't found!"
       redirect_to todos_path
@@ -30,7 +30,6 @@ class TodosController < ApplicationController
   end 
 
   def update
-    @todo = Todo.find(params[:id])
     if  @todo.update(todo_params)
         flash[:notice] = "Post is updated"
         redirect_to todo_path(@todo)
@@ -40,16 +39,18 @@ class TodosController < ApplicationController
   end 
 
   def destroy
-    @todo = Todo.find(params[:id])
     if @todo.destroy
       flash[:notice] = "Post is Deleted"
       redirect_to todos_path
-  else
-    render("index")
-  end
+    else
+      render("index")
+    end
   end 
 
   private
+    def set_todo
+      @todo = Todo.find(params[:id])
+    end 
     def todo_params
       params.require(:todo).permit(:name, :description, :start_dt, :end_dt, :iscompleted)
     end

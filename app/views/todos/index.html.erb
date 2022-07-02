@@ -9,15 +9,13 @@
   </tr>
 <% @todos.each do |todo|%>
   <tr>
-   <td><%= link_to todo.name, todo_path(todo.id), :style => 'width: 100%;' , class: "btn btn-light" %></td>
-   <td><%= todo.description%></td>
-   <td><%= todo.start_dt%></td>
-   <td><%= todo.end_dt%></td>
-   <td><%= check_box_tag todo.iscompleted,"Done" , todo.iscompleted, disabled: true %></td>
-   <td><%= link_to "Edit", edit_todo_path(todo.id), class: "btn btn-info" %></td>
-   <td><%= button_to "Delete", todo, method: :delete, class: "btn btn-danger" %>
-  </td>
-   <br/>
-   </tr>
+    <td><%= link_to todo.name, todo_path(todo.id), :style => 'width: 100%;' , class: "btn btn-light" %></td>
+    <td><%= todo.description%></td>
+    <td><%= todo.start_dt%></td>
+    <td><%= todo.end_dt%></td>
+    <td><%= check_box_tag todo.iscompleted,"Done" , todo.iscompleted, disabled: true %></td>
+    <td><%= link_to "Edit", edit_todo_path(todo.id), class: "btn btn-info" %></td>
+    <td><%= button_to "Delete", todo_path(todo.id), method: :delete, class: "btn btn-danger" %></td>
+  </tr>
 <% end %>
 </table>

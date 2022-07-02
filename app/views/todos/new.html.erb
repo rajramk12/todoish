@@ -1,33 +1,5 @@
 <div class= "container-fluid" style="background-color:lightgray;">
-<% if @todo.errors.any?%>
-  <h2> Errors returned </h2>
-  <%@todo.errors.full_messages.each do |msg|%>
-  <li><%= msg%></li>
-  <% end %>
-<% end %>
-<%= form_with(model: @todo) do |form| %>
-  <p>
-  <h4>New To Do</h4>
-  <%= form.text_field :name, placeholder: "Key To Do!"  %>
-  </p>
-    <%= form.label :description, "What are all To Do ?" %>
-     <br/>
-    <p>
-      <%= form.text_area :description,placeholder: "Details matter!" ,   size: "60x10" %>
-    <br/>
-      <%= form.label :start_dt, "Started ?" %>
-      <%= form.date_field   :start_dt %>
-    <br/>
-      <%= form.label :end_dt, "Done ?" %>
-      <%= form.date_field   :end_dt %>
-    <br/>
-      <%= form.check_box  :iscompleted %>
-      <%= form.label :iscompleted, "Is it Realllly Done?" %>
-    <br/>
-  </p>
-  <p>
-  <%= form.submit %>
-  <td><%= link_to "Back", todos_path , class: "btn btn-info"%></td>
-  </p>
-<% end %>
+<%= render "todos/form" %>
+<div>
+<%= link_to "Back", todos_path , class: "btn btn-info"%>
 </div>
