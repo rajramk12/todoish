@@ -1,0 +1,14 @@
+<table>
+  <tr>
+    <th>Todo</th>
+    <th>What to do</th>
+  </tr>
+ <tr>
+    <td><%= todo.name%></td>,class:"btn btn-primary"
+    <td><%= todo.description%></td>
+    <td><%= link_to "Show", todo_path(todo.id),class:"btn btn-primary" %></td>
+    <td><%= link_to "Edit", edit_todo_path(todo.id, ,class:"btn btn-primary") %></td>
+    <td><%= button_to "Delete",data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-primary" %></td>
+    <br/>
+  </tr>
+</table>

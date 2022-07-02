@@ -1,0 +1,35 @@
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+<table>
+<h2> All Todos </h2>
+  <tr>
+    <th>Todo</th>
+    <th>What to do</th>
+  </tr>
+<% @todos.each do |todo|%>
+  <tr>
+   <td><%= todo.name%></td>
+   <td><%= todo.description%></td>
+  <td><%= link_to "Show", todo_path(todo.id), class: "btn btn-info" %></td>
+  <td><%= link_to "Edit", edit_todo_path(todo.id), class: "btn btn-info" %></td>
+  <td><%= button_to "Delete",method: :destroy, class: "btn btn-danger" %>
+  </td>
+   <br/>
+   </tr>
+<% end %>
+</table>

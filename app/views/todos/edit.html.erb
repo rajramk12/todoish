@@ -1,0 +1,24 @@
+<div class= "container-fluid" style="background-color:lightgray;">
+<%= form_with(model: @todo) do |form| %>
+  <p>
+  <%= form.label :name %>
+  <%= form.text_field :name ,placeholder:@todo.name%>
+  <br/>
+  </p>
+  <p>
+    <%= form.label :description %>
+    <%= form.text_area :description,placeholder:@todo.description,  size: "60x10" %>
+<br/>
+  <%= form.label :start_dt %>
+  <%= form.date_field   :start_dt %>
+  <br/>
+  <%= form.label :end_dt %>
+  <%= form.date_field   :end_dt %>
+  <br/>
+   <br/>
+  <%= form.submit %>
+  <p>
+  <td><%= link_to "Back", todos_path , class: "btn btn-secondary" %>  </td>
+  </p>
+<% end %>
+</div>

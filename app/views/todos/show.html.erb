@@ -1,0 +1,19 @@
+<h4> ToDo </h4>
+
+<p>
+  name: <%= @todo.name %>
+</p>
+<p>
+  name: <%= @todo.description %>
+</p>
+<p>
+  Start Date: <%= @todo.start_dt %>
+</p>
+<p>
+  End Date: <%= @todo.end_dt %>
+</p>
+<p>
+ Completed : <%= @todo.iscompleted %>
+</p>
+<td><%= link_to "Back", todos_path, class: "btn btn-info" %></td>
+<td><%= link_to "Edit", edit_todo_path(@todo.id), class: "btn btn-info" %></td>
