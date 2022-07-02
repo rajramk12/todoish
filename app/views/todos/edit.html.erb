@@ -1,27 +1,35 @@
 <div class= "container-fluid" style="background-color:lightgray;">
+<% if @todo.errors.any?%>
+  <h2> Errors returned </h2>
+  <%@todo.errors.full_messages.each do |msg|%>
+  <li><%= msg%></li>
+  <% end %>
+<% end %>
 <%= form_with(model: @todo) do |form| %>
   <p>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
   <br/>
+  <%# <%= form.label :name, "To Do ?" %>
+  <h4>To Do</h4>
+  <%= form.text_field :name %>
+  </p>
+    <%= form.label :description, "What are all To Do ?"  %>
+     <br/>
+    <p>
+      <%= form.text_area :description,  size: "60x10" %>
+    <br/>
+      <%= form.label :start_dt, "Started ?" %>
+      <%= form.date_field   :start_dt %>
+    <br/>
+      <%= form.label :end_dt, "Done ?" %>
+      <%= form.date_field   :end_dt %>
+    <br/>
+      <%= form.check_box  :iscompleted %>
+      <%= form.label :iscompleted, "Is it Realllly Done?" %>
+    <br/>
   </p>
   <p>
-    <%= form.label :description %>
-    <%= form.text_area :description,  size: "60x10" %>
-<br/>
-  <%= form.label :start_dt %>
-  <%= form.date_field   :start_dt %>
-  <br/>
-  <%= form.label :end_dt %>
-  <%= form.date_field   :end_dt %>
-  <br/>
-  <%= form.check_box  :iscompleted %>
-    <%= form.label :iscompleted %>
-  <br/>
-
-  <%= form.submit %>
-  <p>
-  <td><%= link_to "Back", todos_path , class: "btn btn-secondary" %>  </td>
+    <%= form.submit %>
+    <td><%= link_to "Back", todos_path , class: "btn btn-info" %>  </td>
   </p>
 <% end %>
 </div>

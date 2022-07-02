@@ -7,21 +7,25 @@
 <% end %>
 <%= form_with(model: @todo) do |form| %>
   <p>
-  <%= form.label :name %>
-  <%= form.text_field :name ,placeholder:"Thing to do"%>
-  <br/>
+  <h4>New To Do</h4>
+  <%= form.text_field :name, placeholder: "Key To Do!"  %>
+  </p>
+    <%= form.label :description, "What are all To Do ?" %>
+     <br/>
+    <p>
+      <%= form.text_area :description,placeholder: "Details matter!" ,   size: "60x10" %>
+    <br/>
+      <%= form.label :start_dt, "Started ?" %>
+      <%= form.date_field   :start_dt %>
+    <br/>
+      <%= form.label :end_dt, "Done ?" %>
+      <%= form.date_field   :end_dt %>
+    <br/>
+      <%= form.check_box  :iscompleted %>
+      <%= form.label :iscompleted, "Is it Realllly Done?" %>
+    <br/>
   </p>
   <p>
-    <%= form.label :description %>
-    <%= form.text_area :description,placeholder:"What to do ?" ,  size: "60x10" %>
-<br/>
-  <%= form.label :start_dt %>
-  <%= form.date_field   :start_dt %>
-  <br/>
-  <%= form.label :end_dt %>
-  <%= form.date_field   :end_dt %>
-  <br/>
-   <br/>
   <%= form.submit %>
   <td><%= link_to "Back", todos_path , class: "btn btn-info"%></td>
   </p>

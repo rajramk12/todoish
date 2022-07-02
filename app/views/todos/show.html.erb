@@ -1,19 +1,32 @@
+<div>
 <h4> ToDo </h4>
-
-<p>
-  name: <%= @todo.name %>
-</p>
-<p>
-  name: <%= @todo.description %>
-</p>
-<p>
-  Start Date: <%= @todo.start_dt %>
-</p>
-<p>
-  End Date: <%= @todo.end_dt %>
-</p>
-<p>
- Completed : <%= @todo.iscompleted %>
-</p>
-<td><%= link_to "Back", todos_path, class: "btn btn-info" %></td>
-<td><%= link_to "Edit", edit_todo_path(@todo.id), class: "btn btn-info" %></td>
+<table class="table table-hover">
+<thead>
+  <tr>
+    <th>Todo</th>
+    <th>What to do</th>
+    <th>When to Start</th>
+    <th>When to Finish</th>
+    <th>Mark Finish</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+   <td><%= @todo.name %></td>
+   <td><%= @todo.description %></td>
+   <td><%= @todo.start_dt %></td>
+   <td><%= @todo.end_dt %></td>
+   <td><%= check_box_tag @todo.iscompleted,"Done" , @todo.iscompleted, disabled: true %></td>
+      <br/>
+   </tr>
+      </tbody>
+<tr>
+</table>
+</div>
+<div>
+  <tfoot>
+    <td><%= link_to "Back", todos_path, class: "btn btn-info" %></td>
+    <td><%= link_to "Edit", edit_todo_path(@todo.id), class: "btn btn-info" %> </td>
+    <td><%= button_to "Delete", @todo, method: :delete, class: "btn btn-danger" %></td>
+   </tfoot>
+</div>

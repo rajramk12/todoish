@@ -10,7 +10,7 @@ class TodosController < ApplicationController
   def create
     @todo = Todo.new(todo_params)
     if  @todo.save
-        flash[:notice] = "Post successfully created"
+        flash[:notice] = "Post is created"
         redirect_to todo_path(@todo)
     else
       render("new")
@@ -24,7 +24,7 @@ class TodosController < ApplicationController
     if Todo.exists?(params[:id])
       @todo = Todo.find(params[:id])
     else
-      flash[:alert] = "Post not  found!"
+      flash[:alert] = "Post isn't found!"
       redirect_to todos_path
     end
   end 
@@ -32,11 +32,21 @@ class TodosController < ApplicationController
   def update
     @todo = Todo.find(params[:id])
     if  @todo.update(todo_params)
-        flash[:notice] = "Post successfully Update"
+        flash[:notice] = "Post is updated"
         redirect_to todo_path(@todo)
     else
       render("edit")
     end
+  end 
+
+  def destroy
+    @todo = Todo.find(params[:id])
+    if @todo.destroy
+      flash[:notice] = "Post is Deleted"
+      redirect_to todos_path
+  else
+    render("index")
+  end
   end 
 
   private
