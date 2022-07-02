@@ -20,11 +20,13 @@ tr:nth-child(even) {
   <tr>
     <th>Todo</th>
     <th>What to do</th>
+    <th>When to do</th>
   </tr>
 <% @todos.each do |todo|%>
   <tr>
    <td><%= todo.name%></td>
    <td><%= todo.description%></td>
+   <td><%= todo.end_dt%></td>
   <td><%= link_to "Show", todo_path(todo.id), class: "btn btn-info" %></td>
   <td><%= link_to "Edit", edit_todo_path(todo.id), class: "btn btn-info" %></td>
   <td><%= button_to "Delete",method: :destroy, class: "btn btn-danger" %>

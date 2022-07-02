@@ -30,6 +30,13 @@ class TodosController < ApplicationController
   end 
 
   def update
+    @todo = Todo.find(params[:id])
+    if  @todo.update(todo_params)
+        flash[:notice] = "Post successfully Update"
+        redirect_to todo_path(@todo)
+    else
+      render("edit")
+    end
   end 
 
   private
