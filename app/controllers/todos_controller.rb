@@ -11,9 +11,9 @@ class TodosController < ApplicationController
     @todo = Todo.new(todo_params)
     if  @todo.save
         flash[:notice] = "Post is created"
-        redirect_to todo_path(@todo)
+        redirect_to todos_path
     else
-      render("new")
+      render("index")
     end
   end
 
