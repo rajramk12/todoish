@@ -1,21 +1,29 @@
-<table class="table table-hover">
-<h2> All ToDos </h2>
-  <tr>
-    <th>ToDo</th>
-    <th>What to do</th>
-    <th>Start ?</th>
-    <th>End ?</th>
-    <th>Done ?</th>
-  </tr>
-<% @todos.each do |todo|%>
-  <tr>
-    <td><%= link_to todo.name, todo_path(todo.id), :style => 'width: 100%;' , class: "btn btn-light" %></td>
-    <td><%= todo.description%></td>
-    <td><%= todo.start_dt%></td>
-    <td><%= todo.end_dt%></td>
-    <td><%= check_box_tag todo.iscompleted,"Done" , todo.iscompleted, disabled: true %></td>
-    <td><%= link_to "Edit", edit_todo_path(todo.id), class: "btn btn-info" %></td>
-    <td><%= button_to "Delete", todo_path(todo.id), method: :delete, class: "btn btn-danger" %></td>
-  </tr>
-<% end %>
-</table>
+<div>
+  <table class="table table-hover table-bordered">
+  <h2> All ToDos </h2>  <br/>
+    <tr>
+      <th class="th-text">ToDo</th>
+      <th class="th-text">What to do</th>
+      <th class="th-text">Start ?</th>
+      <th class="th-text">End ?</th>
+      <th class="th-text">Done ?</th>
+      <th class="th-text">Edit</th>
+      <th class="th-text">Delete</th>
+    </tr>
+    <% if @todos.size <= 0%>
+      <h3> No Todos yet</h3>
+    <% else %>
+      <% @todos.each do |todo| %>
+      <tr>
+        <td class="td"><%= link_to todo.name, todo_path(todo.id), :style => 'width: 100%;' , class: "btn btn-light" %></td>
+        <td><%= todo.description%></td>
+        <td><%= todo.start_dt%></td>
+        <td><%= todo.end_dt%></td>
+        <td><%= check_box :iscompleted,  todo.iscompleted, disabled: :true %></td>
+        <td><%= link_to "Edit", edit_todo_path(todo.id), class: "btn btn-info" %></td>
+        <td><%= button_to "Delete", todo_path(todo.id), method: :delete, class: "btn btn-danger" %></td>
+      </tr>
+    <% end %>
+    <% end %>
+  </table>
+  </div>

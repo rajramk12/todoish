@@ -7,7 +7,6 @@
 <%= form_with(model: @todo) do |form| %>
   <p>
   <br/>
-  <%# <%= form.label :name, "To Do ?" %>
   <h4>To Do</h4>
   <%= form.text_field :name %>
   </p>
@@ -27,6 +26,6 @@
     <br/>
   </p>
   <p>
-    <%= form.submit %>
-     </p>
-  <% end %>
+    <%= form.submit(@todo.new_record? ? "Create ToDo" : "Update ToDo")  %>
+    </p>
+<% end %>

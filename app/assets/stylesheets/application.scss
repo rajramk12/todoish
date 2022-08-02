@@ -1,0 +1,40 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#myNavbar {
+	background-color: lightsteelblue;
+}
+
+.th-text {
+  text-align: center;
+  align-items: center;
+  background-color: lightgrey;
+}
+a.button:hover{
+  background: #383;
+}
+
+.form-control{
+  width: 50em;
+  text-align: center;
+  margin-left: 25%;
+  margin-right: 25%;
+}
+.jumbotron{
+  background-color: whitesmoke;
+}
+.align-items-center{
+  text-align: center;
+}
+
+.form-control{
+    width:40em;
+
+}
+button.btn-signout{
+  margin-top: 10px;
+}
+
+.btn.btn-secondary.btn-light{
+  background-color: lavender;
+}

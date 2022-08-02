@@ -1,0 +1,20 @@
+<div class="text-center signin">
+<div class="form-floating">
+<h4> Please Sign In</h4>
+</div>
+  <%= form_with url: signin_path, :html => { class:"form-signin w-100 m-auto" , role:"form"} do |form| %>
+      <br/>
+      <div class="container well">
+        <div class="form-floating">
+        <%= form.label :mail %>
+          <%= form.text_field :mail, placeholder: 'example@email.com', class:"form-control"%><br/>
+        </div>
+        <div class="form-floating">
+          <%= form.label :password %>
+          <%= form.password_field :password, placeholder: 'Enter password', class:"form-control" %>
+        </div>
+        <br>
+          <%= form.submit "Login to Todoish", class:"w-100 btn btn-lg btn-primary"%>
+      </div>
+  <% end %>
+</div>

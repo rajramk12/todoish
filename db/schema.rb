@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_28_170457) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_02_114217) do
   create_table "todos", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -19,6 +19,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_28_170457) do
     t.boolean "iscompleted"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "mail"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.string "salt"
+    t.boolean "isadmin"
   end
 
 end

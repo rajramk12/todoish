@@ -1,0 +1,38 @@
+<div class="container">
+  <% if @user.errors.any?%>
+    <h2> Errors returned </h2>
+    <% @user.errors.full_messages.each do |msg|%>
+      <li><%= msg%></li>
+    <% end %>
+  <% end %>
+</div>
+<div class="text-center signin">
+  <div class="form-floating">
+  <h4> Create new account!</h4>
+  </div>
+  <%= form_with model: @user, :html => { class:"form-signin w-100 m-auto" , role:"form"} do |form| %>
+      <br/>
+      <div class="container well">
+        <div class="form-floating">
+        <%= form.label :name %>
+          <%= form.text_field :name, placeholder: 'user name', class:"form-control"%><br/>
+        </div>
+        <div class="form-floating">
+        <%= form.label :mail %>
+          <%= form.text_field :mail, placeholder: 'example@email.com', class:"form-control"%><br/>
+        </div>
+        <div class="form-floating">
+          <%= form.label :password %>
+          <%= form.password_field :password, placeholder: 'Enter password', class:"form-control" %>
+        </div>
+        <br>
+        <div class="form-floating">
+          <%= form.label :password_confirmation %>
+          <%= form.password_field :password_confirmation, placeholder: 'Re-enter password', class:"form-control" %>
+        </div>
+        <br>
+          <%= form.submit(@user.new_record? ? "Create User" : "Update User", class: "btn btn-primary btn-lg")%>
+      </div>
+  <% end %>
+</div>
+
