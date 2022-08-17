@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
     def require_user
       if !logged_in?
-        flash[:alert] = 'access denied. Please login'
+        flash[:alert] = 'Access denied. Please login first!'
         redirect_to signin_path
       end
     end

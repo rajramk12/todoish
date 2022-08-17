@@ -7,20 +7,19 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <%= render "layouts/navbar" %>
+  <%= render "layouts/flash" %>
   </head>
-
-  <body class="bg-color">
-    <%= render "layouts/navbar" %>
-    <%= render "layouts/flash" %>
     <div class="container">
-      <%= yield %>
+      <body class="bg-color">
+        <%= yield %>
+      </body>
     </div>
-  </body>
   <footer class="footer mt-auto py-3">
-  <div class="container">
-    <span class="text-muted">This is a rails page</span>
-    <span class="text-muted pull-right"><%= link_to "back to home page", root_path%></span>
-  </div>
-</footer>
+    <div>
+      <span class="text-muted">This is a rails page</span>
+      <span class="text-muted pull-right"><%= link_to "back to home page", root_path%></span>
+    </div>
+  </footer>
 </html>

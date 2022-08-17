@@ -1,11 +1,9 @@
 <div>
-<h4> ToDo </h4>
-
 <%= render "todos/form" %>
 <div>
-  <tfoot>
+  <tfoot class="sameline btn btn-info" >
     <td><%= link_to "Back", todos_path, class: "btn btn-info" %></td>
-    <td><%= link_to "Edit", edit_todo_path(@todo.id), class: "btn btn-info" %> </td>
-    <td><%= button_to "Delete", todo_path(@todo.id), method: :delete, class: "btn btn-danger" %></td>
+    <td><%= link_to "Edit", edit_todo_path(@todo.id), class: "btn btn-primary" %> </td>
+    <td><%= link_to "Delete", todo_path(@todo.id), method: :delete, class: "btn btn-danger" %></td>
    </tfoot>
 </div>

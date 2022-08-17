@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :require_user, only:[ :update, :edit, :destroy]
-  before_action :set_user, only: [:show, :update, :destroy, :edit]
+  before_action :require_user, only:[ :update, :edit]
+  before_action :set_user, only: [:show, :update, :edit, :destroy]
+  before_action :require_admin, only:[ :destroy ]
 
   def index
-    if isadmin?
+    if isadmin? && logged_in?
       @users = User.all
     elsif logged_in?
       set_user
@@ -17,7 +18,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:error] = 'User Created!'
+      flash[:success] = 'User Created!'
       session[:user_id] = @user.id
       redirect_to todos_path
     else
@@ -33,9 +34,25 @@ class UsersController < ApplicationController
   end
 
   def update
+    if @user.update(user_params)
+      flash[:success] = 'User updated'
+    else
+      flash[:error] = 'failed to update'
+    end
+    redirect_to users_path
   end
 
   def destroy
+    if @user.isadmin?
+      flash[:error] = "Admin User. Can't be deleted"
+    else
+      if @user.delete
+        flash[:success] = 'User removed!'
+      else
+        flash[:error] = 'Error in Creation'
+      end
+    end
+    redirect_to users_path
   end
 
 
@@ -54,6 +71,12 @@ class UsersController < ApplicationController
 
     def user_params
       params.require(:user).permit(:name,:mail,:password, :password_confirmation)
+    end
+
+    def require_admin
+      if !isadmin? && !logged_in?
+        flash[:error] = 'Admin functionality. Please check your access!'
+      end
     end
 
 end

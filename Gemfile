@@ -15,9 +15,10 @@ gem 'jquery-rails'
 
 gem 'sass-rails'
 
-
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
+
+# gem "passenger", ">= 5.0.25", require: "phusion_passenger/rack_handler"
 
 # Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
 gem "importmap-rails"
@@ -31,7 +32,7 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
-# Use Redis adapter to run Action Cable in production
+# Use Redis adapter to run Action Cable in pro-duction
 # gem "redis", "~> 4.0"
 
 # Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
@@ -71,6 +72,11 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+gem ‘capistrano’, ‘~> 3.8.2’
+gem ‘capistrano-rvm’
+gem ‘capistrano-rails’, ‘~> 1.1.0’
+gem ‘capistrano3-puma’
 end
 
 group :test do

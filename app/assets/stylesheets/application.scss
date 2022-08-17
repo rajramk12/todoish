@@ -1,17 +1,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#myNavbar {
-	background-color: lightsteelblue;
+.bg-color{
+background-color:#e1faf9;
 }
 
 .th-text {
   text-align: center;
   align-items: center;
-  background-color: lightgrey;
-}
-a.button:hover{
-  background: #383;
 }
 
 .form-control{
@@ -19,9 +15,8 @@ a.button:hover{
   text-align: center;
   margin-left: 25%;
   margin-right: 25%;
-}
-.jumbotron{
-  background-color: whitesmoke;
+  border: none;
+  outline: none;
 }
 .align-items-center{
   text-align: center;
@@ -31,10 +26,49 @@ a.button:hover{
     width:40em;
 
 }
-button.btn-signout{
-  margin-top: 10px;
+
+.container .jumbotron {
+  background-color:#e1faf9;
 }
 
-.btn.btn-secondary.btn-light{
-  background-color: lavender;
+#navbarNavDropdown{
+  margin-top: 10px;
+
+}
+
+a.btn.btn-secondary.btn-light
+{
+  border: none;
+  outline: none;
+}
+
+a:hover, a:focus , .nav li a:hover{
+  background-color: yellow;
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.sameline {
+  display: inline-block;
+    width: 49%;
+  }
+
+.navbar
+{
+margin-right: 20px;
+margin-left: 20px;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+.footer
+{
+margin-right: 20px;
+margin-left: 20px;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+img
+{
+  width: 400px;
+  height: auto
 }

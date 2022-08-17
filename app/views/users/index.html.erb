@@ -3,6 +3,8 @@
   <tr>
     <th>User</th>
     <th>Email</th>
+    <th>Edit</th>
+    <th>Delete</th>
   </tr>
   <% if @users.size <= 0%>
     <h3> No Active Users </h3>
@@ -10,11 +12,12 @@
     <% @users.each do |user| %>
     <tr>
       <td><%= link_to user.name, user_path(user.id), :style => 'width: 100%;' , class: "btn btn-light" %></td>
-      <td><%= user.name%></td>
       <td><%= user.mail%></td>
       <%# <td><%= check_box_tag todo.isadmin,"Admin" , todo.isadmin, disabled: true %></td>
       <td><%= link_to "Edit", edit_user_path(user.id), class: "btn btn-info" %></td>
-      <td><%= button_to "Delete", user_path(user.id), method: :delete, class: "btn btn-danger" %></td>
+      <% if !user.isadmin?%>
+      <td><%= button_to "Delete", user_path(user), method: :delete, class: "btn btn-danger" %></td>
+      <% end %>
     </tr>
   <% end %>
 <% end %>

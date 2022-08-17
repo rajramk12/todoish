@@ -1,34 +1,37 @@
  <nav class="navbar navbar-expand-lg bg-light">
-    <div class="navbar-brand btn-light">
-      <%= link_to "Home", root_path ,class: "btn btn-secondary btn-light" %>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
+      <%= link_to "Home", root_path ,class:"navbar-brand btn-light"%>
       <ul class="nav navbar-nav navbar-right ">
         <% if logged_in? %>
-        <% if isadmin? %>
-          <li class="nav-item btn btn-light" >
-            <%= link_to "All Users", users_path ,class: "btn btn-secondary" %>
+          <% if isadmin? %>
+          <li>
+            <h3 style="color: red;"> You are logged in as Admin! </h3>
+          </li>
+            <li class="nav-item btn btn-light" >
+              <%= link_to "All Users", users_path%>
             </li>
-        <% end %>
-          <li class="nav-item btn btn-light" >
-            <%= link_to "All Todos", todos_path ,class: "btn btn-secondary" %>
-            </li>
-          <li class="nav-item btn btn-light" >
-            <%= link_to "New Todo", new_todo_path ,class: "btn btn-secondary" %>
-            </li>
-          <li class="nav-item btn btn-float-right" >
-            <%= button_to "Sign Out", signout_path ,method: :delete, class: "btn btn-primary btn-signout" %>
+          <% end %>
+        <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle btn-lg" href="#" id="navbarNavDropdown" role="button" data-bs-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">  ToDos </a>
+            <ul class="dropdown-menu">
+              <li class="dropdown-item btn-focus" ><%= link_to "All ToDo", todos_path %></li>
+              <li class="dropdown-item btn-focus"> <%= link_to "New ToDo",  new_todo_path %></li>
+              <li class="dropdown-item btn-focus"><a href="#" >Something else here</a></li>
+             </ul>
+        </li>
+          <li class="nav-item btn btn-float-right btn-lg" >
+            <%= link_to "Sign Out", signout_path ,method: :delete%>
           </li>
         <%else%>
+          <%# <li class="nav-item btn btn-float-right" >
+            <%= link_to "Sign Up", signup_path ,class: "btn btn-success btn-lg" %>
+          <%# </li>
           <li class="nav-item btn btn-float-right" >
-            <%= link_to "Sign Up", signup_path ,class: "btn btn-secondary" %>
-          </li>
-          <li class="nav-item btn btn-float-right" >
-            <%= link_to "Sign in", signin_path ,class: "btn btn-secondary btn-signout" %>
-          </li>
+            <%= link_to "Sign in", signin_path ,class: "btn btn-secondary btn-signout btn-lg" %>
+          <%# </li> %>
         <%end%>
-        <li class="nav-item btn btn-float-right" >
-          <%= link_to "About us", about_path ,class: "btn btn-secondary" %>
+        <li class="nav-item btn btn-float-right btn-lg" >
+          <%= link_to "About", about_path%>
         </li>
       </ul>
     </div>

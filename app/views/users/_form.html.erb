@@ -7,9 +7,6 @@
   <% end %>
 </div>
 <div class="text-center signin">
-  <div class="form-floating">
-  <h4> Create new account!</h4>
-  </div>
   <%= form_with model: @user, :html => { class:"form-signin w-100 m-auto" , role:"form"} do |form| %>
       <br/>
       <div class="container well">
@@ -31,7 +28,7 @@
           <%= form.password_field :password_confirmation, placeholder: 'Re-enter password', class:"form-control" %>
         </div>
         <br>
-          <%= form.submit(@user.new_record? ? "Create User" : "Update User", class: "btn btn-primary btn-lg")%>
+          <%= form.submit(@user.new_record? ? "Sign Up" : "Update User", class: "btn btn-primary btn-lg")%>
       </div>
   <% end %>
 </div>

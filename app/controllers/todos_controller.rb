@@ -28,11 +28,13 @@ class TodosController < ApplicationController
   end
 
   def show
+    @read_only = true
     set_todo
   end
 
   def edit
     if Todo.exists?(params[:id])
+      @read_only = false
     else
       flash[:alert] = "Post isn't found!"
       redirect_to todos_path

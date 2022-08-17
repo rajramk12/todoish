@@ -3,7 +3,7 @@
 <%= render "users/form" %>
 <div>
   <tfoot>
-    <td><%= link_to "Back", user_path, class: "btn btn-info" %></td>
+    <td><%= link_to "Back", users_path, class: "btn btn-info" %></td>
     <td><%= link_to "Edit", edit_user_path(@user.id), class: "btn btn-info" %> </td>
     <td><%= button_to "Delete", user_path(@user.id), method: :delete, class: "btn btn-danger" %></td>
    </tfoot>
